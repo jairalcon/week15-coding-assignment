@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 
 export const NewVehicleForm = (props) => {
     // using hooks
-    const [model, setmodel] = useState('');
+    const [model, setModel] = useState('');
     const [year, setYear] = useState(undefined);
-    const [moneyOwed, setMoneyOwed] = useState(false);
 
     // making sure input is a number
-    const handleAreaInput = (e) => {
+    const handleYearInput = (e) => {
         const int = parseInt(e.target.value, 10);
-        setArea(int >= 0 ? int : '');
+        setYear(int >= 0 ? int : '');
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (name && area) {
-            props.addNewRoom({ name, area });
-            setName('');
-            setArea('');
+        if (model && year) {
+            props.addNewVehicle({ model, year });
+            setModel('');
+            setYear('');
         } else {
             console.log('invalid input');
         }
@@ -26,27 +25,21 @@ export const NewVehicleForm = (props) => {
 
     return (
         <div>
-            <h4>Add a new Room</h4>
+            <h4>Add new vehicle:</h4>
             <form onSubmit={onSubmit}>
                 <input
                     type='text'
-                    placeholder='name' //model
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
+                    placeholder='model' //model
+                    onChange={(e) => setModel(e.target.value)}
+                    value={model}
                 />
                 <input
                     type='text'
-                    placeholder='name' //year
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
+                    placeholder='year' //year
+                    onChange={handleYearInput}
+                    value={year}
                 />
-                <input
-                    type='text'
-                    placeholder='area'
-                    onChange={handleAreaInput}
-                    value={area}
-                />
-                <button type='submit'>Add Room</button>
+                <button type='submit'>Add Vehicle</button>
             </form>
         </div>
     )

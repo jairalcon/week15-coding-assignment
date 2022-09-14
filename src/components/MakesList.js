@@ -1,6 +1,7 @@
 import React from "react";
+import { makesApi } from "../rest/MakesApi";
 import { Make } from "./Make";
-import { makesApi } from "../rest/VehiclesApi";
+import { NewMakeForm } from "./NewMakeForm";
 
 export class MakesList extends React.Component {
     state = {
@@ -24,6 +25,7 @@ export class MakesList extends React.Component {
     render() {
         return (
             <div className="make-list">
+                <NewMakeForm />
                 {this.state.makes.map((make) => (
                     <Make
                         make={make}
@@ -31,7 +33,7 @@ export class MakesList extends React.Component {
                         updateMake={this.updateMake}
                     />
                 ))}
-                {/* <NewVehicleForm /> */}
+                {/* {console.log(<Make />)} */}
             </div>
         )
     }

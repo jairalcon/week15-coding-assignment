@@ -1,4 +1,5 @@
 import React from "react";
+import { NewVehicleForm } from "./NewVehicleForm";
 
 export const Make = (props) => {
     const { make, updateMake } = props;
@@ -18,7 +19,7 @@ export const Make = (props) => {
     const addNewVehicle = (vehicle) => updateMake({ ...make, vehicles: [...make.vehicles, vehicle] });
 
     //function to check if the vehicle name is null or empty
-    const checkVehicleName = (vehicle) => {
+    const checkVehicleModel = (vehicle) => {
         //console.log("Shows a vehicle object:", vehicle); //Shows a vehicle object in the console
 
         //If the vehicle name is null or empty return an empty string
@@ -27,19 +28,19 @@ export const Make = (props) => {
         }
         //If the vehicle name is not null or empty return the vehicle name
         else {
-            return vehicle.name;
+            return vehicle.model;
         }
     };
 
     //function to check if the vehicle area is null or empty
-    const checkVehicleArea = (vehicle) => {
+    const checkVehicleYear = (vehicle) => {
         //If the vehicle area is null or empty return an empty string
         if (vehicle === null || vehicle === "") {
             return "";
         }
         //If the vehicle area is not null or empty return the vehicle area
         else {
-            return vehicle.area;
+            return vehicle.year;
         }
     };
 
@@ -47,7 +48,7 @@ export const Make = (props) => {
         <ul>
             {make.vehicles.map((vehicle, index) => (
                 <li key={index}>
-                    <label> {`${checkVehicleName(vehicle)} Area: ${checkVehicleArea(vehicle)}`}</label>
+                    <label> {`${checkVehicleModel(vehicle)} Year: ${checkVehicleYear(vehicle)}`}</label>
                     <button onClick={(e) => deleteVehicle(vehicle.id)}>Delete</button>
                 </li>
             ))}
@@ -56,13 +57,13 @@ export const Make = (props) => {
 
     return (
         <div>
-            <h1>{make.name}</h1>
+            <h1>{make.make}</h1>
             {
                 // props that we're passing in
                 vehicles({ vehicles, makeId: make.id, deleteVehicle })
             }
             {/* {console.log(vehicles)} */}
-            {/* <NewVehicleForm addNewVehicle={addNewVehicle} /> */}
+            <NewVehicleForm addNewVehicle={addNewVehicle} />
         </div>
     );
 }
