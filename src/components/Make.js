@@ -1,4 +1,5 @@
 import React from "react";
+import { NewMakeForm } from "./NewMakeForm";
 import { NewVehicleForm } from "./NewVehicleForm";
 
 export const Make = (props) => {
@@ -17,6 +18,8 @@ export const Make = (props) => {
     }
     // spreading make, vehicles - then taking array of vehicles and adding new vehicle
     const addNewVehicle = (vehicle) => updateMake({ ...make, vehicles: [...make.vehicles, vehicle] });
+
+    // const addNewMake = (make) => updateMake(make);
 
     //function to check if the vehicle name is null or empty
     const checkVehicleModel = (vehicle) => {
@@ -48,7 +51,7 @@ export const Make = (props) => {
         <ul>
             {make.vehicles.map((vehicle, index) => (
                 <li key={index}>
-                    <label> {`${checkVehicleModel(vehicle)} Year: ${checkVehicleYear(vehicle)}`}</label>
+                    <label>{`Model: ${checkVehicleModel(vehicle)} - Year: ${checkVehicleYear(vehicle)}`}</label>
                     <button onClick={(e) => deleteVehicle(vehicle.id)}>Delete</button>
                 </li>
             ))}

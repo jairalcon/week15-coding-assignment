@@ -22,10 +22,20 @@ export class MakesList extends React.Component {
         this.fetchMakes();
     };
 
+    deleteMake = async (deletedMake) => {
+        await makesApi.delete(deletedMake);
+        this.fetchMakes();
+    }
+
+    addMake = async (addedMake) => {
+        await makesApi.post(addedMake);
+        this.fetchMakes();
+    }
+
     render() {
         return (
             <div className="make-list">
-                <NewMakeForm />
+                <NewMakeForm addMake={this.addMake}/>
                 {this.state.makes.map((make) => (
                     <Make
                         make={make}
@@ -34,6 +44,7 @@ export class MakesList extends React.Component {
                     />
                 ))}
                 {/* {console.log(<Make />)} */}
+                {/* <button onClick={(e) => deleteMake(make.id)}>Delete</button> */}
             </div>
         )
     }

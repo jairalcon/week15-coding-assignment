@@ -10,7 +10,7 @@ export const NewMakeForm = (props) => {
             console.log('New Make Make: ' + name);
             console.log('props: ', props);
 
-            props.addNewMake({ name });
+            props.addMake({ name });
             setName('');
         } else {
             console.log('invalid input');
@@ -19,7 +19,7 @@ export const NewMakeForm = (props) => {
 
     return (
         <div>
-            <h4>Add a new Make </h4>
+            <h4>Add New Make </h4>
             <form onSubmit={onSubmit}>
                 <input
                     type='text'

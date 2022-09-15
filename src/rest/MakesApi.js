@@ -27,7 +27,39 @@ class MakesApi {
                 },
                 body: JSON.stringify(makes)
             });
-            console.log(resp);
+            // console.log(resp);
+            return await resp.json();
+        } catch (e) {
+            console.log('Oops, looks like updating makes had an issue.', e);
+        }
+    }
+
+    post = async (makes) => {
+        try {
+            const resp = await fetch(`${MAKES_ENDPOINT}/${makes.id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' //type and value
+                },
+                body: JSON.stringify(makes)
+            });
+            // console.log(resp);
+            return await resp.json();
+        } catch (e) {
+            console.log('Oops, looks like updating makes had an issue.', e);
+        }
+    }
+
+    delete = async (makes) => {
+        try {
+            const resp = await fetch(`${MAKES_ENDPOINT}/${makes.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json' //type and value
+                },
+                body: JSON.stringify(makes)
+            });
+            // console.log(resp);
             return await resp.json();
         } catch (e) {
             console.log('Oops, looks like updating makes had an issue.', e);

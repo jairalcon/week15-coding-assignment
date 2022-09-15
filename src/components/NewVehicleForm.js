@@ -14,6 +14,8 @@ export const NewVehicleForm = (props) => {
     const onSubmit = (e) => {
         e.preventDefault();
         if (model && year) {
+            console.log('New Vehicle: ', model, year);
+            console.log('new vehicle form', props)
             props.addNewVehicle({ model, year });
             setModel('');
             setYear('');
