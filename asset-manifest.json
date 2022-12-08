@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/week15-coding-assignment/static/css/main.9fff54fe.css",
+    "main.js": "/week15-coding-assignment/static/js/main.63d8ab2a.js",
+    "static/js/496.ed3b5a8c.chunk.js": "/week15-coding-assignment/static/js/496.ed3b5a8c.chunk.js",
+    "index.html": "/week15-coding-assignment/index.html",
+    "main.9fff54fe.css.map": "/week15-coding-assignment/static/css/main.9fff54fe.css.map",
+    "main.63d8ab2a.js.map": "/week15-coding-assignment/static/js/main.63d8ab2a.js.map",
+    "496.ed3b5a8c.chunk.js.map": "/week15-coding-assignment/static/js/496.ed3b5a8c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9fff54fe.css",
+    "static/js/main.63d8ab2a.js"
+  ]
+}
